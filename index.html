@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lighthouse Island Bistro - Layout Launcher</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark-blue: #00005D;
+            --bg-header-blue: #869dc7;
+            --bg-body-blue: #b3c7e6;
+            --nav-pink: #e4afc1;
+            --nav-hover-pink: #d396ab;
+            --card-bg: #ffffff;
+            --text-dark: #222222;
+        }
+
+        body {
+            font-family: Constantia, "Lucida Bright", Georgia, serif;
+            background-color: var(--bg-dark-blue);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-family: 'Papyrus LET', sans-serif;
+            font-size: 2.8rem;
+            color: var(--bg-body-blue);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--bg-header-blue);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1050px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+
+        .card-preview {
+            background-color: var(--bg-body-blue);
+            padding: 20px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid var(--bg-header-blue);
+        }
+
+        /* Visual Mini Wireframes */
+        .wireframe {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border: 2px solid var(--bg-dark-blue);
+            border-radius: 4px;
+            padding: 6px;
+            display: grid;
+            gap: 4px;
+        }
+
+        /* Wireframe Styles */
+        .wf-header { background: var(--bg-header-blue); height: 16px; border-radius: 2px; }
+        .wf-nav { background: var(--nav-pink); border-radius: 2px; }
+        .wf-content { background: #e0e0e0; border-radius: 2px; }
+        .wf-sidebar { background: #c5c5c5; border-radius: 2px; }
+
+        /* Desktop Wireframe Grid */
+        .wf-desktop {
+            grid-template-columns: 45px 1fr 60px;
+            grid-template-rows: 14px 1fr;
+        }
+        .wf-desktop .wf-header { grid-column: 1 / -1; }
+
+        /* Tablet Wireframe Grid */
+        .wf-tablet {
+            grid-template-columns: 1fr 60px;
+            grid-template-rows: 14px 14px 1fr;
+        }
+        .wf-tablet .wf-header { grid-column: 1 / -1; }
+        .wf-tablet .wf-nav { grid-column: 1 / -1; }
+
+        /* Mobile Wireframe Grid */
+        .wf-mobile {
+            grid-template-rows: 14px 20px 1fr 24px;
+        }
+
+        .card-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-body h2 {
+            font-size: 1.4rem;
+            color: var(--bg-dark-blue);
+            margin-bottom: 8px;
+        }
+
+        .card-body .specs {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--bg-header-blue);
+            margin-bottom: 12px;
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            background-color: var(--nav-pink);
+            color: #ffffff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .card:hover .btn {
+            background-color: var(--nav-hover-pink);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: var(--bg-header-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Lighthouse Island Bistro</h1>
+        <p>Select a CSS Grid layout below to preview the responsive views</p>
+    </header>
+
+    <div class="cards-container">
+
+        <!-- Desktop Card -->
+        <a href="desktop.html" class="card">
+            <div class="card-preview">
+                <div class="wireframe wf-desktop">
+                    <div class="wf-header"></div>
+                    <div class="wf-nav"></div>
+                    <div class="wf-content"></div>
+                    <div class="wf-sidebar"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>Desktop View</h2>
+                <div class="specs">3-Column Grid (&ge; 901px)</div>
+                <p>Full 3-column layout featuring a left sidebar navigation, central content area, and right image sidebar.</p>
+                <div class="btn">Launch Desktop View</div>
+            </div>
+        </a>
+
+        <!-- Tablet Card -->
+        <a href="tablet.html" class="card">
+            <div class="card-preview">
+                <div class="wireframe wf-tablet">
+                    <div class="wf-header"></div>
+                    <div class="wf-nav"></div>
+                    <div class="wf-content"></div>
+                    <div class="wf-sidebar"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>Tablet View</h2>
+                <div class="specs">2-Column Grid (481px - 900px)</div>
+                <p>Horizontal top navigation spanning across, with main content and image sidebar side-by-side.</p>
+                <div class="btn">Launch Tablet View</div>
+            </div>
+        </a>
+
+        <!-- Mobile Card -->
+        <a href="mobile.html" class="card">
+            <div class="card-preview">
+                <div class="wireframe wf-mobile">
+                    <div class="wf-header"></div>
+                    <div class="wf-nav"></div>
+                    <div class="wf-content"></div>
+                    <div class="wf-sidebar"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <h2>Mobile View</h2>
+                <div class="specs">1-Column Grid (&lt; 481px)</div>
+                <p>Single-column stacked layout where navigation, main content, and the sidebar render vertically.</p>
+                <div class="btn">Launch Mobile View</div>
+            </div>
+        </a>
+
+    </div>
+
+    <footer>
+        Copyright &copy; 2026 • CSS Grid Layout Demonstration
+    </footer>
+
+</body>
+</html>
